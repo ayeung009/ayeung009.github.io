@@ -17,7 +17,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <Router>
+    <Router basename="/">
       {/* Navbar stays outside Routes so it shows on every page */}
       <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       
