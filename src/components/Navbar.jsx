@@ -26,8 +26,7 @@ export const Navbar = ({menuOpen, setMenuOpen}) =>{
 
 
                     <Link to="/projects" className="font-cantata text-gray-600 hover:text-sky-500 transition-colors">Projects</Link>
-
-                    <a href="#about" className="font-cantata text-gray-600 hover:text-sky-500 transition-colors">Contact</a>
+ 
 
                     <a 
                     href="Andrew_Yeung_Resume.pdf" // Ensure the file name matches exactly (case-sensitive)
@@ -35,7 +34,9 @@ export const Navbar = ({menuOpen, setMenuOpen}) =>{
                     rel="noopener noreferrer"
                  className="font-cantata text-gray-600 hover:text-sky-500 transition-colors">Resume</a>
 
-                    <a href="#education" className="font-cantata text-gray-600 hover:text-sky-500 transition-colors">Education</a>
+                    <Link to="/contact" className="font-cantata text-gray-600 hover:text-sky-500 transition-colors">Contact</Link>
+                
+
                 </div>
 
             </div>

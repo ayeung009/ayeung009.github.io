@@ -105,7 +105,7 @@ export const Home = () => {
             Technical Skills</h1>
   </div>
   
-  <div className="flex flex-wrap gap-6 items-center bg-white/66 backdrop-blur-md border border-white/90 p-4 rounded-3xl w-fit shadow-2xl">
+  <div className="flex flex-wrap gap-6 items-center bg-white/15 backdrop-blur-md border border-white/90 p-4 rounded-3xl w-fit shadow-2xl">
     
     {/* Java */}
     <div className="flex flex-col items-center gap-1">

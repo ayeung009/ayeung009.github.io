@@ -118,7 +118,16 @@ export const Projects = () => {
       githubLink: "https://devpost.com/software/temp-rft3ge",
       demoLink: "https://devpost.com/software/temp-rft3ge",
       image: "witness.jpg"
-    }
+    },
+    {
+      title: "Personal Website",
+      description: "This is my personal website, created in January 2026. It was built using React, Tailwind CSS, and JavaScript, with a focus on clean design, responsiveness, and performance. The site highlights my projects, technical experience, and ongoing learning as an engineering student.",
+      tags: ["React", "Tailwind CSS", "JavaScript"],
+      hardware: "ReactJS",
+      githubLink: "https://ayeung009.github.io/",
+      demoLink: "https://ayeung009.github.io/",
+      image: "pp.png"
+    },
   ];
 
   return (
@@ -127,11 +136,11 @@ export const Projects = () => {
       <div 
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
-          backgroundImage: "url('grid.jpg')", 
+          backgroundImage: "url('mm.jpg')", 
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          opacity: 0.04, 
-          filter: 'grayscale(30%)',
+          opacity: 0.12, 
+          filter: 'grayscale(0%)',
         }}
       />
 
@@ -139,7 +148,7 @@ export const Projects = () => {
         <div className="mb-12">
           <h1 className="text-4xl md:text-4xl font-bold font-cantata text-gray-800">Featured Projects</h1>
           <div className="h-1.5 w-24 bg-sky-500 mt-4 rounded-full"></div>
-          <p className="mt-6 text-gray-800 max-w-full font-cantata text-lg">
+          <p className="mt-6 text-gray-800 max-w-full font-cantata text-base">
            Throughout high school and university, 
            I have developed a wide range of projects, 
            including software and web applications, 
