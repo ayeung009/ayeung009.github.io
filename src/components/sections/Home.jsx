@@ -98,7 +98,7 @@ export const Home = () => {
               </a>{""}
               , and playing basketball — I am currently working toward my first dunk on a 10-foot rim!
           </p>
-
+        
            <div className="mt-9 flex flex-wrap gap-5 font-cantata"> 
               <Link
                   to="/projects"

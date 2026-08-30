@@ -79,9 +79,27 @@ export const Projects = () => {
       description: "Implemented a fully functional bubble and insertion sort simulator on the DE1-SoC FPGA using Verilog, featuring VGA-based graphical animations, real-time user input, and FSM-driven control logic with registers and combinational circuits to manage algorithm flow and bar-graph visualizations.",
       tags: ["Verilog", "Quartus Prime", "ModelSim"],
       hardware: "DE1-SoC (Cyclone V)",
-      githubLink: "#",
-      demoLink: "#",
+      githubLink: "https://docs.google.com/presentation/d/1c6BTrzBz8w55eqplv7p8rjziIzERD488jExpCsWNuiw/edit?slide=id.p#slide=id.p",
+      demoLink: "https://docs.google.com/presentation/d/1c6BTrzBz8w55eqplv7p8rjziIzERD488jExpCsWNuiw/edit?slide=id.p#slide=id.p",
       image: "sorting.png" // Add image path later
+    },
+    {
+      title: "Rhythm Racer",
+      description: "Developed an interactive rhythm typing game in C on a RISC-V soft-core processor mapped to the DE1-SoC FPGA, integrating VGA graphics, PS/2 keyboard input, and audio output with interrupt-driven I/O. Implemented real-time scoring and WPM tracking, leveraging double buffering and hardware FIFOs for responsive gameplay and smooth audiovisual performance.",
+      tags: ["C", "RISC-V", "Assembly", "VGA"],
+      hardware: "RISC-V",
+      githubLink: "https://www.youtube.com/watch?v=-h7cKk14XW8&feature=youtu.be",
+      demoLink: "https://www.youtube.com/watch?v=-h7cKk14XW8&feature=youtu.be",
+      image: "typing.png" // Add image path later
+    },
+    {
+      title: "A Deep Learning Assistant for Digital Circuit Design",
+      description: "Designed and trained a CNN + Transformer deep learning model to derive Boolean expressions from digital circuit images, leveraging a pretrained ResNet-18 backbone, self-attention encoder, and autoregressive decoder trained on a custom 1,061-image dataset combining cleaned Roboflow data and self-generated Schemdraw circuits, achieving 64.7% functional accuracy on unseen test data.",
+      tags: ["Python", "Deep Learning", "Transformers"],
+      hardware: "Jupyter Notebook",
+      githubLink: "https://github.com/ayeung009/APS360-Project",
+      demoLink: "https://github.com/ayeung009/APS360-Project",
+      image: "APS360image.png"
     },
     {
       title: "Live Speech Translation Device",
