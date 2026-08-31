@@ -57,8 +57,7 @@ export const Home = () => {
                   Electrical & Computer Engineering
               </a>{" "}
               program at the University of Toronto, minoring in Artificial Intelligence and Engineering Business. 
-              I am a highly motivated student 
-              and was recently ranked among the <span className="text-gray-900">Top 30</span> students by GPA within the ECE department. 
+              
           </p>
 
           <p className="text-gray-700 text-base md:text-base font-cantata">
