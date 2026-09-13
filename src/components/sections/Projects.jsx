@@ -1,10 +1,11 @@
 import { Github, ExternalLink, Cpu, CircuitBoard } from 'lucide-react';
+import { useTheme } from "../../context/ThemeContext";
 
 const HardwareProjectCard = ({ title, description, tags, hardware, githubLink, demoLink, image }) => {
   return (
-    <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col h-full group">
+    <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col h-full group">
       {/* Project Image Container */}
-      <div className="h-48 overflow-hidden bg-gray-100 border-b border-gray-100 relative">
+      <div className="h-48 overflow-hidden bg-gray-100 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-700 relative">
         <img 
           src={image || "/api/placeholder/400/200"} 
           alt={title}
@@ -17,20 +18,20 @@ const HardwareProjectCard = ({ title, description, tags, hardware, githubLink, d
       <div className="p-6 flex flex-col flex-grow">
         {/* Icon & Title */}
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-sky-50 text-sky-600 rounded-lg group-hover:bg-sky-500 group-hover:text-white transition-colors shrink-0">
+          <div className="p-2 bg-sky-50 dark:bg-sky-900/30 text-sky-600 dark:text-sky-400 rounded-lg group-hover:bg-sky-500 group-hover:text-white transition-colors shrink-0">
             <Cpu size={20} />
           </div>
-          <h3 className="text-lg font-bold font-cantata text-gray-800 leading-tight">{title}</h3>
+          <h3 className="text-lg font-bold font-cantata text-gray-800 dark:text-gray-100 leading-tight">{title}</h3>
         </div>
 
         {/* Hardware Platform Tag */}
-        <div className="flex items-center gap-2 mb-3 text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+        <div className="flex items-center gap-2 mb-3 text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">
           <CircuitBoard size={14} className="text-sky-500" />
           <span>Platform: {hardware}</span>
         </div>
 
         {/* Description */}
-        <p className="text-gray-600 text-sm font-cantata mb-6 flex-grow leading-relaxed">
+        <p className="text-gray-600 dark:text-gray-300 text-sm font-cantata mb-6 flex-grow leading-relaxed">
           {description}
         </p>
 
@@ -39,7 +40,7 @@ const HardwareProjectCard = ({ title, description, tags, hardware, githubLink, d
           {tags.map((tag) => (
             <span 
               key={tag} 
-              className="px-2.5 py-0.5 bg-gray-50 text-gray-600 text-[11px] font-semibold rounded-md border border-gray-200"
+              className="px-2.5 py-0.5 bg-gray-50 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-[11px] font-semibold rounded-md border border-gray-200 dark:border-gray-600"
             >
               {tag}
             </span>
@@ -47,12 +48,12 @@ const HardwareProjectCard = ({ title, description, tags, hardware, githubLink, d
         </div>
 
         {/* Links */}
-        <div className="flex items-center gap-5 pt-4 border-t border-gray-100 mt-auto">
+        <div className="flex items-center gap-5 pt-4 border-t border-gray-100 dark:border-gray-700 mt-auto">
           <a 
             href={githubLink} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-xs font-bold text-gray-700 hover:text-sky-500 transition-colors"
+            className="flex items-center gap-1.5 text-xs font-bold text-gray-700 dark:text-gray-300 hover:text-sky-500 transition-colors"
           >
             <Github size={16} /> SOURCE
           </a>
@@ -61,7 +62,7 @@ const HardwareProjectCard = ({ title, description, tags, hardware, githubLink, d
               href={demoLink} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs font-bold text-gray-700 hover:text-sky-500 transition-colors"
+              className="flex items-center gap-1.5 text-xs font-bold text-gray-700 dark:text-gray-300 hover:text-sky-500 transition-colors"
             >
               <ExternalLink size={16} /> DOCS
             </a>
@@ -73,6 +74,8 @@ const HardwareProjectCard = ({ title, description, tags, hardware, githubLink, d
 };
 
 export const Projects = () => {
+  const { isDark } = useTheme();
+
   const myProjects = [
     {
       title: "Sorting Algorithm Visualizer",
@@ -121,7 +124,7 @@ export const Projects = () => {
     },
     {
       title: "DMOJ UACC Contest",
-      description: "I collaborated with fellow members of my high school’s Computer Science Club to create a beginner-friendly programming contest hosted on Canada’s largest competitive programming platform, DMOJ, designed to introduce younger students to competitive programming while giving more experienced students the opportunity to practice problem design.",
+      description: "I collaborated with fellow members of my high school's Computer Science Club to create a beginner-friendly programming contest hosted on Canada's largest competitive programming platform, DMOJ, designed to introduce younger students to competitive programming while giving more experienced students the opportunity to practice problem design.",
       tags: ["Competitive Programming", "Problem Setting", "I/O Validation"],
       hardware: "dmoj.ca",
       githubLink: "https://dmoj.ca/contest/uacc1",
@@ -149,7 +152,7 @@ export const Projects = () => {
   ];
 
   return (
-    <section className="min-h-screen pt-32 pb-20 px-6 md:px-12 lg:px-24 xl:px-40 relative">
+    <section className="min-h-screen pt-32 pb-20 px-6 md:px-12 lg:px-24 xl:px-40 relative bg-white dark:bg-gray-900 transition-colors">
       {/* Background with UofT Skyline */}
       <div 
         className="absolute inset-0 z-0 pointer-events-none"
@@ -157,16 +160,16 @@ export const Projects = () => {
           backgroundImage: "url('mm.jpg')", 
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          opacity: 0.12, 
-          filter: 'grayscale(0%)',
+          opacity: isDark ? 0.06 : 0.12, 
+          filter: isDark ? 'grayscale(0%) brightness(0.6)' : 'grayscale(0%)',
         }}
       />
 
       <div className="max-w-[1400px] mx-auto relative z-10">
         <div className="mb-12">
-          <h1 className="text-4xl md:text-4xl font-bold font-cantata text-gray-800">Featured Projects</h1>
+          <h1 className="text-4xl md:text-4xl font-bold font-cantata text-gray-800 dark:text-gray-100">Featured Projects</h1>
           <div className="h-1.5 w-24 bg-sky-500 mt-4 rounded-full"></div>
-          <p className="mt-6 text-gray-800 max-w-full font-cantata text-base">
+          <p className="mt-6 text-gray-800 dark:text-gray-300 max-w-full font-cantata text-base">
            Throughout high school and university, 
            I have developed a wide range of projects, 
            including software and web applications, 
