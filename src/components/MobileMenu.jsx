@@ -1,6 +1,6 @@
 import { Sun, Moon } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
-
+import { Link } from "react-router-dom";
 export const MobileMenu = ({ menuOpen, setMenuOpen }) => {
   const { isDark, setIsDark } = useTheme();
 
@@ -18,35 +18,38 @@ export const MobileMenu = ({ menuOpen, setMenuOpen }) => {
         &times;
       </button>
 
-      <a
-        href="#home"
+      <Link 
+        to="/"
         onClick={() => setMenuOpen(false)}
         className={`text-2xl font-semibold text-white my-4 transform transition-transform duration-300
         ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
       >
         Home
-      </a>
+      </Link>
 
-      <a
-        href="#about"
-        onClick={() => setMenuOpen(false)}
-        className={`text-2xl font-semibold text-white my-4 transform transition-transform duration-300
-        ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
-      >
-        About
-      </a>
 
-      <a
-        href="#projects"
+      <Link
+        to="/projects"
         onClick={() => setMenuOpen(false)}
         className={`text-2xl font-semibold text-white my-4 transform transition-transform duration-300
         ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
       >
         Projects
-      </a>
+      </Link>
+
+      <Link
+        to="/contact"
+        onClick={() => setMenuOpen(false)}
+        className={`text-2xl font-semibold text-white my-4 transform transition-transform duration-300
+        ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+      >
+        Contact
+      </Link>
 
       <a
-        href="#resume"
+        href="AYResume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
         onClick={() => setMenuOpen(false)}
         className={`text-2xl font-semibold text-white my-4 transform transition-transform duration-300
         ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
