@@ -10,6 +10,10 @@ import { Projects } from "./components/sections/Projects";
 import { Contact } from "./components/sections/Contact";
 
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { SortingAlgorithmVisualizer } from './components/projects/SortingAlgorithmVisualizer';
+import { RhythmRacer } from './components/projects/RhythmRacer';
+import { DeepLearningAssistant } from './components/projects/DeepLearningAssistant';
+// ...
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,6 +27,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/projects/sorting-algorithm-visualizer" element={<SortingAlgorithmVisualizer />} />
+          <Route path="/projects/rhythm-racer" element={<RhythmRacer />} />
+          <Route path="/projects/deep-learning-circuit-assistant" element={<DeepLearningAssistant />} />  
         </Routes>
       </Router>
     </ThemeProvider>

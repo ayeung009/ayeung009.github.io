@@ -1,6 +1,6 @@
 import { Github, ExternalLink, Cpu, CircuitBoard } from 'lucide-react';
 import { useTheme } from "../../context/ThemeContext";
-
+import { useNavigate } from "react-router-dom";
 const HardwareProjectCard = ({ title, description, tags, hardware, githubLink, demoLink, image }) => {
   return (
     <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col h-full group">
@@ -53,6 +53,7 @@ const HardwareProjectCard = ({ title, description, tags, hardware, githubLink, d
             href={githubLink} 
             target="_blank" 
             rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
             className="flex items-center gap-1.5 text-xs font-bold text-gray-700 dark:text-gray-300 hover:text-sky-500 transition-colors"
           >
             <Github size={16} /> SOURCE
@@ -62,6 +63,7 @@ const HardwareProjectCard = ({ title, description, tags, hardware, githubLink, d
               href={demoLink} 
               target="_blank" 
               rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
               className="flex items-center gap-1.5 text-xs font-bold text-gray-700 dark:text-gray-300 hover:text-sky-500 transition-colors"
             >
               <ExternalLink size={16} /> DOCS
@@ -75,11 +77,14 @@ const HardwareProjectCard = ({ title, description, tags, hardware, githubLink, d
 
 export const Projects = () => {
   const { isDark } = useTheme();
+  const navigate = useNavigate();
 
   const myProjects = [
     {
       title: "Sorting Algorithm Visualizer",
-      description: "Implemented a fully functional bubble and insertion sort simulator on the DE1-SoC FPGA using Verilog, featuring VGA-based graphical animations, real-time user input, and FSM-driven control logic with registers and combinational circuits to manage algorithm flow and bar-graph visualizations.",
+      slug: "sorting-algorithm-visualizer",
+      hasPage: true,
+      description: "Implemented a fully functional bubble and selection sort simulator on the DE1-SoC FPGA using Verilog, featuring VGA-based graphical animations, real-time user input, and FSM-driven control logic with registers and combinational circuits to manage algorithm flow and bar-graph visualizations.",
       tags: ["Verilog", "Quartus Prime", "ModelSim"],
       hardware: "DE1-SoC (Cyclone V)",
       githubLink: "https://docs.google.com/presentation/d/1c6BTrzBz8w55eqplv7p8rjziIzERD488jExpCsWNuiw/edit?slide=id.p#slide=id.p",
@@ -88,6 +93,8 @@ export const Projects = () => {
     },
     {
       title: "Rhythm Racer",
+      slug: "rhythm-racer",
+      hasPage: true,
       description: "Developed an interactive rhythm typing game in C on a RISC-V soft-core processor mapped to the DE1-SoC FPGA, integrating VGA graphics, PS/2 keyboard input, and audio output with interrupt-driven I/O. Implemented real-time scoring and WPM tracking, leveraging double buffering and hardware FIFOs for responsive gameplay and smooth audiovisual performance.",
       tags: ["C", "RISC-V", "Assembly", "VGA"],
       hardware: "RISC-V",
@@ -97,6 +104,8 @@ export const Projects = () => {
     },
     {
       title: "A Deep Learning Assistant for Digital Circuit Design",
+      slug: "deep-learning-circuit-assistant",
+      hasPage: true,
       description: "Designed and trained a CNN + Transformer deep learning model to derive Boolean expressions from digital circuit images, leveraging a pretrained ResNet-18 backbone, self-attention encoder, and autoregressive decoder trained on a custom 1,061-image dataset combining cleaned Roboflow data and self-generated Schemdraw circuits, achieving 64.7% functional accuracy on unseen test data.",
       tags: ["Python", "Deep Learning", "Transformers"],
       hardware: "Jupyter Notebook",
@@ -183,7 +192,13 @@ export const Projects = () => {
         {/* Responsive Grid: 1 on mobile, 2 on tablet/laptop, 3 on large screens */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {myProjects.map((project, index) => (
-            <HardwareProjectCard key={index} {...project} />
+          <div 
+            key={index} 
+            onClick={project.hasPage ? () => navigate(`/projects/${project.slug}`) : undefined}
+            className={project.hasPage ? "cursor-pointer" : ""}
+          >
+            <HardwareProjectCard {...project} />
+          </div>
           ))}
         </div>
       </div>
