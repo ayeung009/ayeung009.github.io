@@ -88,16 +88,7 @@ export const Home = () => {
               >
                   Rubik's cubes
               </a>{" "}
-              competitively, grinding bullet {""}
-              <a
-                  href="https://www.chess.com/member/yungak3"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-800 dark:text-blue-400 font-semibold hover:underline underline-offset-4"
-              >
-                  chess
-              </a>{""}
-              , and playing basketball — I am currently working toward my first dunk on a 10-foot rim!
+              competitively, grinding bullet chess, and playing basketball — I am currently working toward my first dunk on a 10-foot rim!
           </p>
         
            <div className="mt-9 flex flex-wrap gap-5 font-cantata"> 
